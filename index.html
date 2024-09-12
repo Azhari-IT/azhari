@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard with Sidebar</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+  <div id="app" class="flex min-h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-gray-800 text-white flex flex-col">
+      <div class="p-4 text-2xl font-bold text-center border-b border-gray-700">
+        My Dashboard
+      </div>
+      <nav class="mt-4 flex-grow">
+        <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700">
+          <span class="material-icons mr-3">dashboard</span>
+          Dashboard
+        </a>
+        <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700">
+          <span class="material-icons mr-3">settings</span>
+          Settings
+        </a>
+        <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700">
+          <span class="material-icons mr-3">person</span>
+          Profile
+        </a>
+        <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-700">
+          <span class="material-icons mr-3">logout</span>
+          Logout
+        </a>
+      </nav>
+      <div class="p-4 border-t border-gray-700 text-center">
+        <span class="text-sm">&copy; 2024 Dashboard</span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-grow p-6">
+      <h1 class="text-3xl font-bold mb-6">Dashboard Overview</h1>
+      
+      <!-- Dashboard Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <div class="flex items-center">
+            <span class="material-icons text-blue-500 text-3xl mr-4">analytics</span>
+            <div>
+              <h2 class="text-lg font-semibold">Analytics</h2>
+              <p class="text-gray-500">View website analytics</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <div class="flex items-center">
+            <span class="material-icons text-green-500 text-3xl mr-4">bar_chart</span>
+            <div>
+              <h2 class="text-lg font-semibold">Reports</h2>
+              <p class="text-gray-500">Generate monthly reports</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <div class="flex items-center">
+            <span class="material-icons text-yellow-500 text-3xl mr-4">task</span>
+            <div>
+              <h2 class="text-lg font-semibold">Tasks</h2>
+              <p class="text-gray-500">Manage daily tasks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toggleable Content -->
+      <div class="mt-6">
+        <div class="space-y-4">
+          <div class="flex justify-between items-center">
+            <span class="font-semibold">Item 1</span>
+            <button @click="toggleItem1" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">
+              {{ item1 ? 'Hide' : 'Show' }}
+            </button>
+          </div>
+          <div v-if="item1" class="text-gray-700">
+            Content for Item 1
+          </div>
+
+          <div class="flex justify-between items-center">
+            <span class="font-semibold">Item 2</span>
+            <button @click="toggleItem2" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-700">
+              {{ item2 ? 'Hide' : 'Show' }}
+            </button>
+          </div>
+          <div v-if="item2" class="text-gray-700">
+            Content for Item 2
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        item1: false,
+        item2: false
+      },
+      methods: {
+        toggleItem1() {
+          this.item1 = !this.item1;
+        },
+        toggleItem2() {
+          this.item2 = !this.item2;
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
